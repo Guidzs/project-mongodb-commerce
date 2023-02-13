@@ -2,7 +2,7 @@ db.produtos.find({
   $and: [
     { vendidos: { $gte: 50 } },
     { vendidos: { $lte: 100 } },
-  ]
+  ],
 }, {
   _id: 0,
   nome: 1,
