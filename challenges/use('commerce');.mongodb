@@ -1,10 +1,13 @@
 use('commerce');
 
-db.produtos.deleteMany({
-  curtidas: { $lte: 50 },
-});
-
-db.produtos.find({}, {
+db.produtos.find({
+  valoresNutricionais: {
+    $elemMatch: {
+      tipo: "calorias",
+      quantidades: { $lte: 500 },
+    },
+  },
+}, {
   _id: 0,
   nome: 1,
 });
